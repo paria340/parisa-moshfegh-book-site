@@ -60,9 +60,10 @@ function BooksFetch() {
         //console.log(res.volumeInfo)
         book.map((plot) => {
             console.log(plot.volumeInfo.description)
-            setOverview(plot.volumeInfo.description)
+            //setOverview(plot.volumeInfo.description)
             return(
-                <p>{overview}</p>                        
+                //<p>{overview}</p>     
+                console.log(plot.volumeInfo.description)                   
             ) 
         })
     }
