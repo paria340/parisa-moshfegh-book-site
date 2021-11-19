@@ -22,6 +22,7 @@ function BooksFetch() {
             for(let object in data){
                 // console.log(data)
                 newState.push(data)
+                console.log(object)
             }
             handleHeart(newState)
             console.log(newState)
