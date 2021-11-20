@@ -1,7 +1,26 @@
 .App h1{
-  text-align: center;
-  margin-top: 0;
-  padding-top: 30px;
+  width: 35ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+.widthTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App{
@@ -24,7 +43,13 @@
   display: flex;
   flex-direction: column;
   width: 30%;
+}
 
+.info a{
+  text-decoration: none;
+  color: black;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #75718E 65%);
+  
 }
 
 .info img{
@@ -56,6 +81,8 @@ form{
 
 form label{
   margin-right: 20px;
+  font-family: monospace;
+  font-size: 20px;
 }
 
 form input{
@@ -94,6 +121,32 @@ footer{
   text-align: center;
   padding-bottom: 20px;
   padding-top: 20px;
+}
+
+@media(max-width: 480px){
+  .App h1{
+    font-size: 17px;
+    width: 80%;
+    margin-top: 30px;
+    border-right: none;
+    text-align: center;
+    animation: none;
+  }
+
+  .heart{
+    right: 25px;
+  }
+  
+  form label{
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  form input{
+    margin-top: 10px;
+  }
+  .info{
+    width: 50%;
+  }
 }
 
 

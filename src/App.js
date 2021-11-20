@@ -8,7 +8,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Image If You Could Read Every Book!</h1>
+      <div className="widthTitle">
+      <h1>Image If You Could Read Every Book!</h1></div>
 
       <BooksFetch />
       <footer>Made at Juno College by Parisa</footer>
