@@ -27,7 +27,6 @@
 
 }
 
-
 .info img{
   align-self: center;
   width: 40%;
@@ -65,6 +64,30 @@ form input{
 
 a{
   align-self: center;
+}
+
+.fire{
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  padding-right: 20px;
+  background-color: #718E75;
+  margin-left: 1000px;
+}
+
+.fire p{
+  align-self: flex-end;
+}
+
+.summary{
+  position: absolute;
+  background-color: white;
+  color: black;
+  left: 200px;
+  bottom: 150px;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  width: 45%;
+  padding: 5px;
 }
 
 footer{
