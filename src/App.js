@@ -1,18 +1,26 @@
-import './App.css';
+import './App.scss';
 // import axios from 'axios';
 // import {useEffect, useState} from 'react'
 import BooksFetch from './BooksFetch';
+import Nav from './Nav';
 // import firebase from './firebase.js';
 
 function App() {
 
   return (
     <div className="App">
-      <div className="widthTitle">
-      <h1>Image If You Could Read Every Book!</h1></div>
+      <a id="logo" href="." className="logo">
+        <span>Book Genius</span>
+      </a>
+      <div className="Title">
+        <h1>Imagine If You Could Read Every Book!</h1>
+      </div>
 
       <BooksFetch />
-      <footer>Made at Juno College by Parisa</footer>
+      <footer> 
+        <Nav />
+        <p>Made at <a href="https://junocollege.com">Juno College</a> by Parisa</p>
+      </footer>
     </div>
   );
 }

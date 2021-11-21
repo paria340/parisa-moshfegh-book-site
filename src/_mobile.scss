@@ -1,0 +1,24 @@
+@media(max-width: 480px){
+    .App h1{
+      font-size: 17px;
+      width: 80%;
+      margin-top: 30px;
+      border-right: none;
+      text-align: center;
+      animation: none;
+    }
+    .heart{
+      right: 25px;
+    }
+    
+    form label{
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    form input{
+      margin-top: 10px;
+    }
+    .info{
+      width: 50%;
+    }
+  }

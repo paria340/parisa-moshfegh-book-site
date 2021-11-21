@@ -6,10 +6,10 @@ function FavoriteOption() {
     //When user clicks on the heart on page, information on firebase is translated and stored in a new array called newState which is then passed to a set function called setBookFire
     const [clickCounter, setCounter] = useState(0)
     const [bookFirebase, setBookFire] = useState([])
+
     const handleHeart = () => {
         //the setCounter helps to keep track of how many times the heart on page has been clicked on
         setCounter(clickCounter + 1)
-        console.log(clickCounter)
         const dbRef = firebase.database().ref()
         dbRef.on('value', (response) => {
             const newState = []
@@ -19,9 +19,9 @@ function FavoriteOption() {
                 newState.push(data[object])
             }
             setBookFire(newState)
-
         })
     }
+
     return (
         <>
             {

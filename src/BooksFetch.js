@@ -1,5 +1,5 @@
 import axios from 'axios'
-import './App.css'
+import './App.scss'
 import { useEffect, useState } from 'react'
 import firebase from './firebase'
 import logo from './logo.svg'
@@ -25,6 +25,7 @@ function BooksFetch() {
     //When user clicks on the heart on page, information on firebase is translated and stored in a new array called newState which is then passed to a set function called setBookFire
     const handleHeart = () => {
         //the setCounter helps to keep track of how many times the heart on page has been clicked on
+
         setCounter(clickCounter + 1)
         console.log(clickCounter)
         const dbRef = firebase.database().ref()
@@ -38,6 +39,7 @@ function BooksFetch() {
             setBookFire(newState)
 
         })
+        // <FavoriteOption />
     }
 
     //the api call which accepts a query and passes it to a state function setBook
@@ -53,7 +55,13 @@ function BooksFetch() {
                 q: query
             }
         }).then(response => {
+            console.log(response)
             setBook(response.data.items)
+        })
+        .catch((error) => {
+            if (error.response) {
+                console.log(error.response)
+            }
         })
 
     }
@@ -64,8 +72,6 @@ function BooksFetch() {
         console.log(clickCounterOver)
         const preview = book.find((plot) => plot.id === bookshelfId)
         setOverview(preview.volumeInfo.description)
-
-        console.log(overview)
     }
 
     //Saves the user input in a state function called setSearch
@@ -74,13 +80,18 @@ function BooksFetch() {
     }
 
     //pushes the user input (query) saved in a state function to firebase
-    //the input search is also passed as an argument to the handle query function 
+    //the input search is also passed as an argument to the handle query function
+    //a ternary statement in order to display a message in case the use has not put any query 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        handleQuery(inputSearch)
         const dbRef = firebase.database().ref()
-        dbRef.push(inputSearch)
-        setSearch('')
+        {
+            inputSearch ? 
+                dbRef.push(inputSearch) && handleQuery(inputSearch) && setSearch('')
+            :   
+            console.log('enterSt') && <div className="message"><p>Please enter a book name of author</p></div>
+    
+        }
     }
 
     return (
@@ -100,7 +111,7 @@ function BooksFetch() {
                     : null
             }
             <form onSubmit={handleFormSubmit}>
-                <label htmlFor="aBook">Search a book title or an author</label>
+                <label htmlFor="aBook" className="sr-only">Search a book title or an author</label>
                 <input
                     type="text"
                     id="aBook"
@@ -115,15 +126,16 @@ function BooksFetch() {
                         : null
 
                 }
+
                 {
                     book.map(bookshelf => {
                         return (
                             <>
                                 <div className="info" key={bookshelf.id}>
                                     <img src={bookshelf.volumeInfo.imageLinks.smallThumbnail} alt={bookshelf.volumeInfo.subtitle} />
-                                    <h2> Title: {bookshelf.volumeInfo.title}</h2>
+                                    <h2> {bookshelf.volumeInfo.title}</h2>
                                     <a href={bookshelf.volumeInfo.infoLink}>Get Item!</a>
-                                    <button onClick={() => handleOverview(bookshelf.id)}>More info!</button>
+                                    <button onClick={() => handleOverview(bookshelf.id)}>More info!</button>                         
                                 </div>
                             </>
                         )
