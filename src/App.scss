@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 15vh;
+  height: 20vh;
   background-color: #AEF6C7;
 }
 
@@ -51,6 +51,7 @@
 .infoDisplay{
   display: flex;
   flex-wrap: wrap;
+  margin-top: 40px;
 }
 
 .info{
@@ -84,9 +85,13 @@
   color: white;
   padding-top: 7px;
   padding-bottom: 7px;
+  cursor: pointer;
+  transition: linear all 0.4s;
+  &:hover,
   &:focus{
     color: #F49390;
     border: 3px solid #F49390;
+    transform: scale(1.2);
   }
 }
 
@@ -98,8 +103,7 @@
 
 form{
   text-align: center;
-  margin-bottom: 40px;
-  height: 15vh;
+  height: 25vh;
   background-color: #AEF6C7;
   label{
     margin-right: 20px;
@@ -108,9 +112,25 @@ form{
   }
   input{
     border-radius: 10px;
+    width: 380px;
+    padding-top: 10px;
     &:focus{
     border: 3px solid #F49390;
   }
+  }
+  .categoryChoosing{
+    margin-top: 70px;
+    select{
+      width: 300px;
+      text-align: center;
+    }
+  }
+  select{
+    cursor: pointer;
+    background: #498467;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: none;
   }
 }
 
