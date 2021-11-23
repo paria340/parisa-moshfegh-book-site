@@ -12,7 +12,7 @@ function Form(props) {
         const dbRef = firebase.database().ref()
         {
             inputSearch ?
-                dbRef.push(inputSearch) && props.handleQuery(inputSearch) && console.log(errorMessage) && setInputSearch('') && setErrorMessage('') 
+                dbRef.push(inputSearch) && props.handleQuery(inputSearch) && setInputSearch('') 
                 :
                 setErrorMessage('Please enter a search item') 
         }
