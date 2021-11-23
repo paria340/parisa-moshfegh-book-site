@@ -75,7 +75,7 @@ function BooksFetch() {
                                 {
                                     bookshelf.volumeInfo.imageLinks ? 
                                         <img src={bookshelf.volumeInfo.imageLinks.thumbnail} alt={bookshelf.volumeInfo.subtitle} />
-                                    :   <img src={logoBook} />
+                                    :   <img src={logoBook} alt={'book does not have image so the logo of website is displayed'}/>
                                 }
                                 <h2> {bookshelf.volumeInfo.title}</h2>
                                 <a href={bookshelf.volumeInfo.infoLink}>Get Item!</a>
