@@ -7,16 +7,41 @@ function Form(props) {
     const [errorMessage, setErrorMessage] = useState('')
     //On form submit if there is a userInput, the value will be pushed to firebase and also to handleQuery (API fetching happens) 
     //if not it will show the popUp message to enter St
+    
     const handleFormSubmit = (event) => {
         event.preventDefault()
         const dbRef = firebase.database().ref()
-        {
-            inputSearch ?
-                dbRef.push(inputSearch) && props.handleQuery(inputSearch) && setInputSearch('') 
-                :
-                setErrorMessage('Please enter a search item') 
+        if(inputSearch){
+            dbRef.push(inputSearch)
+            props.handleQuery(inputSearch)
+            setInputSearch('')
+            setErrorMessage('')
+        }else{
+            setErrorMessage('Please enter a search item') 
         }
+        //     inputSearch ?
+        //         dbRef.push(inputSearch) && props.handleQuery(inputSearch)  && setInputSearch('') && setErrorMessage('')
+        //         :
+        //         setErrorMessage('Please enter a search item') 
+        
+        // console.log(errorMessage)
     }
+
+    // const handleFormSubmit = (event) => {
+    //     event.preventDefault()
+    //     const dbRef = firebase.database().ref()
+    //     dbRef.push(inputSearch)
+    //     // props.handleQuery(inputSearch)
+    //     setInputSearch('') 
+    //     // {
+    //     //     inputSearch ?
+    //     //         dbRef.push(inputSearch) && props.handleQuery(inputSearch)  && setInputSearch('') && setErrorMessage('')
+    //     //         :
+    //     //         setErrorMessage('Please enter a search item') 
+    //     // }
+    //     // console.log(errorMessage)
+
+    // }
 
     //a function dealing with the select option and passing the value to handleQuery where the API is fetched
     const handleChangeOption = (event) => {
@@ -52,11 +77,15 @@ function Form(props) {
                 </select>
             </section>
         </form>
-        {
+        <p>{errorMessage}</p>
+        {/* {
             errorMessage ? <p>{errorMessage}</p> 
             // :errorMessage && 
             :null
-        }
+        } */}
+        {/* {
+            inputSearch ? props.handleQuery(inputSearch) : <p>hello</p> 
+        } */}
         </>
     )
 

@@ -15,8 +15,6 @@ function BooksFetch() {
     //what is rendered to the page directly is handeled by a random query from the object queries 
     useEffect(() => {
         const randomInt = Math.floor(Math.random() * queries.length)
-        console.log(randomInt)
-        console.log(queries[randomInt])
         handleQuery(queries[randomInt].query)
         
     }, [])
@@ -69,7 +67,6 @@ function BooksFetch() {
 
                 {
                     book.map(bookshelf => {
-                        console.log(bookshelf)
                         return (
                             <div className="info" key={bookshelf.id}>
                                 {
