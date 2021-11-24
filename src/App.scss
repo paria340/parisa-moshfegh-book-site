@@ -168,6 +168,15 @@ a{
   }
 }
 
+.erroMessage{ 
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  p{
+    background-color: #F49390;
+  }
+}
+
 footer{
   padding-bottom: 20px;
   padding-top: 20px;

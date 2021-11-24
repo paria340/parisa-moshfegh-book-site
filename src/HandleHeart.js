@@ -2,7 +2,7 @@ import { useState } from 'react'
 import firebase from './firebase'
 import logo from './logo.svg'
 
-function HandleHeart(props) {
+function HandleHeart() {
     const [bookFirebase, setBookFire] = useState([])
     const [clickCounterHeart, setCounterHeart] = useState(false)
 
@@ -25,7 +25,7 @@ function HandleHeart(props) {
 
     return (
         <>
-            <img src={logo} alt="heart" className="heart"
+            <img src={logo} alt="a small heart" className="heart"
                 onClick={() => handleHeart()}
             />
             {

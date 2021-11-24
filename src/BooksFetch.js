@@ -4,15 +4,15 @@ import { useEffect, useState } from 'react'
 import Form from './Form'
 import HandleHeart from './HandleHeart'
 import queries from './queries'
-import logoBook from './logoBook.png'
+import noImg from './noImg.png'
 
 
 function BooksFetch() {
     const [book, setBook] = useState([])
-    const [overview, setOverview] = useState([])
+    const [overview, setOverview] = useState([]) 
     const [clickCounterOverview, setCounterOverview] = useState(false)
 
-    //what is rendered to the page directly is handeled by a random query from the object queries 
+    //what is rendered to the page directly is handeled by a random query from the pre-defined object queries 
     useEffect(() => {
         const randomInt = Math.floor(Math.random() * queries.length)
         handleQuery(queries[randomInt].query)
@@ -20,6 +20,7 @@ function BooksFetch() {
     }, [])
 
     //the api call which accepts a query and passes it to a state function setBook
+    //catches errors from the api in case, and console logs it
     const handleQuery = (query) => {
         const apiKey = 'AIzaSyCSRFpu_8mf8enHbi2TQpvlwE56Mxy3duI'
         const apiURL = 'https://www.googleapis.com/books/v1/volumes'
@@ -64,7 +65,7 @@ function BooksFetch() {
                         : null
 
                 }
-
+{/* Where the major part of the information is being displayed for the user; this is done but maping over book's each item and getting the required information from the API */}
                 {
                     book.map(bookshelf => {
                         return (
@@ -72,7 +73,7 @@ function BooksFetch() {
                                 {
                                     bookshelf.volumeInfo.imageLinks ? 
                                         <img src={bookshelf.volumeInfo.imageLinks.thumbnail} alt={bookshelf.volumeInfo.subtitle} />
-                                    :   <img src={logoBook} alt={'book does not have any so the logo of website is displayed'}/>
+                                    :   <img src={noImg} alt={'book does not have any so the logo of website is displayed'}/>
                                 }
                                 <h2> {bookshelf.volumeInfo.title}</h2>
                                 <a href={bookshelf.volumeInfo.infoLink}>Get Item!</a>

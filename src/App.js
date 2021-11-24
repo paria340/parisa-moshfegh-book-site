@@ -6,7 +6,7 @@ import Nav from './Nav';
 function App() {
 
   return (
-    <div className="App">
+    <main className="App">
       <a id="logo" href="." className="logo">
         <span>Book Genius</span>
       </a>
@@ -19,7 +19,7 @@ function App() {
         <Nav />
         <p>Made at <a href="https://junocollege.com">Juno College</a> by Parisa</p>
       </footer>
-    </div>
+    </main>
   );
 }
 
