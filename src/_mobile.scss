@@ -1,0 +1,46 @@
+@media(max-width: 480px){
+    .App h1{
+      font-size: 17px;
+      width: 80%;
+      margin-top: 80px;
+      border-right: none;
+      text-align: center;
+      animation: none;
+    }
+    .title{
+        height: 18vh;
+    }
+    .logo{
+        font-size: 18px;
+    }
+    .heart{
+      right: 25px;
+    }
+    form {
+        height: 23vh;
+        .categoryChoosing{
+            margin-top: 30px;
+        }
+    }   
+    form label{
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    form input{
+      margin-top: 10px;
+    }
+    select{
+        margin-top: 10px;
+    }
+    .info{
+      width: 100%;
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+        .navBar{
+            align-self: center;
+            margin-bottom: 5px;
+        }
+    }
+}
