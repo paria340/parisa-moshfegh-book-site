@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import firebase from '../data/firebase'
-import logo from '../images/logoHeart.svg'
 
 function HandleHeart() {
     const [bookFirebase, setBookFire] = useState([])
