@@ -1,4 +1,4 @@
-import firebase from './firebase'
+import firebase from '../data/firebase'
 import { useState } from 'react'
 
 function Form(props) {
@@ -42,7 +42,7 @@ function Form(props) {
                     onChange={handleChange}
                 />
 
-                <section className="categoryChoosing">
+                <fieldset className="categoryChoosing">
                     <label htmlFor="category">Or select a category</label>
                     <select name="category" id="category" onChange={handleChangeOption}>
                         <option value defaultValue>Choose Category</option>
@@ -53,7 +53,7 @@ function Form(props) {
                         <option value="Romance">Romance</option>
                         <option value="thriller">Thriller</option>
                     </select>
-                </section>
+                </fieldset>
             </form>
             <div className="erroMessage">
                 <p>{errorMessage}</p>

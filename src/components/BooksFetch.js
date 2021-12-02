@@ -1,10 +1,9 @@
 import axios from 'axios'
-import './App.scss'
 import { useEffect, useState } from 'react'
 import Form from './Form'
 import HandleHeart from './HandleHeart'
-import queries from './queries'
-import noImg from './noImg.png'
+import queries from '../data/queries'
+import noImg from '../images/noImg.png'
 
 
 function BooksFetch() {

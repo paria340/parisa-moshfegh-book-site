@@ -1,6 +1,6 @@
 
-@import 'normalized';
-@import 'nav';
+@import './styling/normalized';
+@import './styling/nav';
 
 
 .Title{
@@ -40,12 +40,25 @@
 }
 
 .heart{
+  background-image: url(./images/logoHeart.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #AEF6C7;
   position: absolute;
+  border: none;
+  width: 30px;
+  height: 30px;
   top: 30px;
   right: 50px;
   &:focus{
     border: 3px solid #F49390;
   }
+}
+
+h3{
+  position: absolute;
+  top: 15px;
+  right: 90px;
 }
 
 .infoDisplay{
@@ -160,6 +173,10 @@ a{
   padding: 5px;
 }
 
+fieldset{
+  border: none;
+}
+
 .message{
   width: 100px;
   height: 100px;
@@ -193,7 +210,7 @@ footer{
 }
 
 
-@import 'mobile';
+@import './styling/mobile';
 
 @keyframes typing {
   from {
