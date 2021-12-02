@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import firebase from './firebase'
-import logo from './logo.svg'
+import firebase from '../data/firebase'
+import logo from '../images/logoHeart.svg'
 
 function HandleHeart() {
     const [bookFirebase, setBookFire] = useState([])
@@ -24,10 +24,12 @@ function HandleHeart() {
     }
 
     return (
-        <>
-            <img src={logo} alt="a small heart" className="heart"
+        <>  
+            <h3>See what others are reading!</h3>
+            <button className="heart" onClick={() => handleHeart()}></button>
+            {/* <img src={logo} alt="a small heart" className="heart"
                 onClick={() => handleHeart()}
-            />
+            /> */}
             {
                 clickCounterHeart && bookFirebase ?
                     bookFirebase.map((bookfire, index) => {

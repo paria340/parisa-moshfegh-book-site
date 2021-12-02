@@ -1,6 +1,6 @@
 import './App.scss';
-import BooksFetch from './BooksFetch';
-import Nav from './Nav';
+import BooksFetch from './components/BooksFetch';
+import Nav from './components/Nav';
 
 
 function App() {
