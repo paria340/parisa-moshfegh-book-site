@@ -4,12 +4,17 @@ import Form from './Form'
 import HandleHeart from './HandleHeart'
 import queries from '../data/queries'
 import noImg from '../images/noImg.png'
+import Pagination from './Pagination'
+import Posts from './Posts'
 
 
 function BooksFetch() {
     const [book, setBook] = useState([])
     const [overview, setOverview] = useState([]) 
     const [clickCounterOverview, setCounterOverview] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage, setPostsPerPage] = useState(12)
+
 
     //what is rendered to the page directly is handeled by a random query from the pre-defined object queries 
     useEffect(() => {
@@ -30,7 +35,7 @@ function BooksFetch() {
             params: {
                 key: apiKey,
                 q: query,
-                maxResults: 12
+                maxResults: 30
             }
         }).then(response => {
             setBook(response.data.items)
@@ -50,6 +55,11 @@ function BooksFetch() {
         setOverview(preview.volumeInfo.description)
     }
 
+    const indexOfLastPost = currentPage * postsPerPage
+    const indexOfFirstPost = indexOfLastPost - postsPerPage
+    const currentPosts = book.slice(indexOfFirstPost, indexOfLastPost)
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
     return (
         <section>
 
@@ -66,12 +76,12 @@ function BooksFetch() {
                 }
 {/* Where the major part of the information is being displayed for the user; this is done but maping over book's each item and getting the required information from the API */}
                 {
-                    book.map(bookshelf => {
+                    currentPosts.map(bookshelf => {
                         return (
                             <div className="info" key={bookshelf.id}>
                                 {
                                     bookshelf.volumeInfo.imageLinks ? 
-                                        <img src={bookshelf.volumeInfo.imageLinks.thumbnail} alt={bookshelf.volumeInfo.subtitle} />
+                                        <img className="bookCover" src={bookshelf.volumeInfo.imageLinks.thumbnail} alt={bookshelf.volumeInfo.subtitle} />
                                     :   <img src={noImg} alt={'book does not have any so the logo of website is displayed'}/>
                                 }
                                 <h2> {bookshelf.volumeInfo.title}</h2>
@@ -83,7 +93,8 @@ function BooksFetch() {
 
                 }
             </section>
-
+            <Posts book={currentPosts} />
+            <Pagination postsPerPage={postsPerPage} totalPosts={book.length} paginate={paginate} />
 
         </section>
     )

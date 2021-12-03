@@ -209,6 +209,26 @@ footer{
   }
 }
 
+.listGroupItem{
+  display: none;
+}
+
+.pageNumbers {
+  display: flex;
+  justify-content: center;
+}
+
+.pageNumbers li{
+  list-style: none;
+  button{
+    background-color: #493657;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-left: 5px;
+  }
+}
+
 
 @import './styling/mobile';
 
