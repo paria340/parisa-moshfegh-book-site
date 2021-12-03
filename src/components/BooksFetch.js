@@ -39,6 +39,7 @@ function BooksFetch() {
             }
         }).then(response => {
             setBook(response.data.items)
+            setPostsPerPage(12)
         })
             .catch((error) => {
                 if (error.response) {
